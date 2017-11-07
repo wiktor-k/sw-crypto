@@ -23,3 +23,19 @@ Go to root page:
 This will register Service Worker and allow decrypting files, such as this one:
 
     http://localhost:8000/leaf-veins.jpg#492fc2ba53dd27a4f4a6a250310609f0c6c82267073eb9967390796a2d770e0a89d3f95c650d1f533e60b7e51a96cacf
+
+## Installing Service Worker
+
+Service worker is installed only on explicit call from JavaScript or when a Link header is inserted in response headers:
+
+    Link: </worker.js>; rel="serviceworker"; scope="/"
+
+To check this version use:
+
+    python server.py
+
+Unfortunately the initial request will not be processed by the Worker so the first file will not be decrypted.
+
+See [A header-based SW installation][SWH] for more details.
+
+[SWH]: https://github.com/w3c/ServiceWorker/issues/685
