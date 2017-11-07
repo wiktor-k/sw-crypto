@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-8">
+<body>
+    <h1>Auto decryption</h1>
+    <p>
+        This site registers a Service Worker that decrypts encrypted files on the fly.
+    </p>
+    <p>
+        If you see a correct image under
+        <a href="leaf-veins.jpg#492fc2ba53dd27a4f4a6a250310609f0c6c82267073eb9967390796a2d770e0a89d3f95c650d1f533e60b7e51a96cacf">this link</a>
+        then it's working. Try removing the fragment identifier (that contains IV and key).
+    </p>
+    <p>If it doesn't work check your console for errors.</p>
+    <script>
+        navigator.serviceWorker.register('./worker.js').then(console.log.bind(console), console.error.bind(console));
+    </script>
+</body>
